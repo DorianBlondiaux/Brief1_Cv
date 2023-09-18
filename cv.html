@@ -5,32 +5,37 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cv Dorian Blondiaux</title>
+  <link href='https://fonts.googleapis.com/css?family=Schibsted Grotesk' rel='stylesheet'>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div id="leftNavbar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <li onclick="load_content('expPro')">Expérience Professionnelle</li>
-        <li onclick="load_content('formations')">Formations</li>
-        <li>Compétences</li>
-        <li>Logiciels Utilisés</li>
-        <li>Contact</li>
+        <div class="navBarChoix">
+            <li onclick="load_content('expPro')">Expérience Professionnelle</li>
+            <li onclick="load_content('formations')">Formations</li>
+            <li onclick="load_content('competences')">Compétences</li>
+            <li onclick="load_content('logiciels')">Logiciels Utilisés</li>
+            <li onclick="load_content('contact')">Contact</li>
+        </div>
     </div>
 
     <div id="main">
         <div id="topBar">
             <div class="entete">
-                <a>Blondiaux Dorian</a>
-                <a>Développeur Java</a>
+                <a id="nom">Blondiaux Dorian</a>
+                <a id="dev">Développeur Java</a>
             </div>
-            <button class="openbtn" onclick="openNav()">☰</button>
+            <button class="openbtn" onclick="openCloseNav()">☰</button>
         </div>
 
         <div id="content">
         </div>
     </div>
 
+    <footer>
+        <h5>Pages</h5>
+    </footer>
 
   <script src="scripts.js"></script>
 </body>
