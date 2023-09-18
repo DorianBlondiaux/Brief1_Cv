@@ -1,3 +1,5 @@
+/* Mobile */
+  
   body {
     font-family: Schibsted Grotesk,sans-serif;
     margin: 0;
@@ -144,3 +146,5 @@
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
   }
+
+  /* PC */

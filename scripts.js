@@ -1,4 +1,6 @@
 var sideBarFlag = true;
+var isPcSize = window.matchMedia("(min-width: 800px)")
+var navBarSize = 33;
 
 var expProHtml = '\
     <h2>Expérience Profesionnelle</h2>\
@@ -63,14 +65,20 @@ var contactHtml = '\
 
 loadContentCloseNav('expPro');
 
+if (isPcSize){ 
+  document.getElementById("navBtn").style.display = "none"; 
+  navBarSize = 15;
+  openCloseNav();
+}
+
 
   function openCloseNav(){
     if(sideBarFlag){
       document.getElementById("leftNavbar").style.width = "0";
-      document.getElementById("main").style.marginLeft = "0%";
+      document.getElementById("main").style.marginLeft = "0";
     }else{
-      document.getElementById("leftNavbar").style.width = "33%";
-      document.getElementById("main").style.marginLeft = "33%";
+      document.getElementById("leftNavbar").style.width = navBarSize + "%";
+      document.getElementById("main").style.marginLeft = navBarSize + "%";
     }
     sideBarFlag = !sideBarFlag;
   }
