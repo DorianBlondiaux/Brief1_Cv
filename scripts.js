@@ -1,4 +1,4 @@
-var sideBarFlag = false;
+var sideBarFlag = true;
 
 var expProHtml = '\
     <h2>Expérience Profesionnelle</h2>\
@@ -8,53 +8,74 @@ var expProHtml = '\
     <p>- Développement, test et livraisons de correctifs et d\'évolutions de l\'application<p>\
     <p>- Création/Modification de scripts SQL/PLSQL <p>\
     <p>- Gestion de l\'arbre de décision de l\'octroi</p>\
-    </div>';
+    ';
 
 var formationsHtml = '\
 <h2>Formation</h2>\
-<h6>2019 | Formation Développeur Java EE - Afpa et Aston</h6>\
-<h7>Formation de 4 mois au développement Java EE</h7>';
+<h4>2019 | Formation Développeur Java EE - Afpa et Aston</h4>\
+<h5>Formation de 4 mois au développement Java EE</h5>';
 
 var competencesHtml = '\
-<li>Java</li>\
-<li>PHP</li>\
-<li>Javascript</li>\
-<li>HTML, CSS</li>\
-<li>SQLP/PLSQL</li>\
-<li>Java EE</li>\
-<li>Spring Boot</li>\
-<li>Angular</li>\
-<li>Git</li>\
+<h2>Compétences</h2>\
+<ul>\
+  <li>Java</li>\
+  <li>PHP</li>\
+  <li>Javascript</li>\
+  <li>HTML, CSS</li>\
+  <li>SQLP/PLSQL</li>\
+  <li>Java EE</li>\
+  <li>Spring Boot</li>\
+  <li>Angular</li>\
+  <li>Git</li>\
+</ul>\
 ';
 
 var logicielsHtml = '\
-<li>Eclipse</li>\
-<li>Microsoft Visual Studio Code</li>\
-<li>Netbeans</li>\
-<li>MySQLWorkBench</li>\
-<li>SpringToolSuite</li>\
-<li>WinDev</li>\
-'
-;
-
-var contactHtml = '\
-<a>TELEPHONE</a>\
-<a>EMAIL</a>\
-<a>ADRESSE</a>\
+<h2>Logiciels Utilisés</h2>\
+<ul>\
+  <li>Eclipse</li>\
+  <li>Microsoft Visual Studio Code</li>\
+  <li>Netbeans</li>\
+  <li>MySQLWorkBench</li>\
+  <li>SpringToolSuite</li>\
+  <li>WinDev</li>\
+</ul>\
 ';
 
-load_content('expPro');
+var contactHtml = '\
+<h2>Contact</h2>\
+<div class="grid-container">\
+    <img class="item1" src="images/phone.png" alt="Telephone" width="45" height="45"/>\
+    <a class="item2">TELEPHONE</a>\
+    <a class="item3">06 51 61 98</a>\
+  </div>\
+<div class="grid-container">\
+    <img class="item1" src="images/mail.png" alt="Email" width="45" height="45"/>\
+    <a class="item2">EMAIL</a>\
+    <a class="item3">blondiaux.dorian@outlook.fr</a>\
+</div>\
+<div class="grid-container">\
+    <img class="item1" src="images/adress.png" alt="Email" width="45" height="45"/>\
+    <a class="item2">ADRESSE</a>\
+    <a class="item3">3 Allée de sorbiers 59 560 COMINES</a>\
+</div>\
+';
+
+loadContentCloseNav('expPro');
+
 
   function openCloseNav(){
     if(sideBarFlag){
       document.getElementById("leftNavbar").style.width = "0";
+      document.getElementById("main").style.marginLeft = "0%";
     }else{
-      document.getElementById("leftNavbar").style.width = "250px";
+      document.getElementById("leftNavbar").style.width = "33%";
+      document.getElementById("main").style.marginLeft = "33%";
     }
     sideBarFlag = !sideBarFlag;
   }
 
-  function load_content(part) {
+  function loadContent(part) {
     var partToLoad ='';
     switch (part) {
       case 'expPro':
@@ -73,7 +94,11 @@ load_content('expPro');
         partToLoad = contactHtml
       break;
     }
-
     document.getElementById("content").innerHTML = partToLoad;
+}
+
+function loadContentCloseNav(part) {
+  loadContent(part);
+  openCloseNav();
 }
 

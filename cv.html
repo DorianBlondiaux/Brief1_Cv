@@ -12,11 +12,15 @@
 <body>
     <div id="leftNavbar" class="sidebar">
         <div class="navBarChoix">
-            <li onclick="load_content('expPro')">Expérience Professionnelle</li>
-            <li onclick="load_content('formations')">Formations</li>
-            <li onclick="load_content('competences')">Compétences</li>
-            <li onclick="load_content('logiciels')">Logiciels Utilisés</li>
-            <li onclick="load_content('contact')">Contact</li>
+            <p onclick="loadContent('expPro')">Expérience Professionnelle</p>
+            <div class="navbar-list-divider"></div>
+            <p onclick="loadContent('formations')">Formations</p>
+            <div class="navbar-list-divider"></div>
+            <p onclick="loadContent('competences')">Compétences</p>
+            <div class="navbar-list-divider"></div>
+            <p onclick="loadContent('logiciels')">Logiciels Utilisés</p>
+            <div class="navbar-list-divider"></div>
+            <p onclick="loadContent('contact')">Contact</p>
         </div>
     </div>
 
@@ -31,11 +35,17 @@
 
         <div id="content">
         </div>
-    </div>
 
-    <footer>
-        <h5>Pages</h5>
-    </footer>
+        <footer>
+            <h5>Pages</h5>
+                <p onclick="loadContent('expPro')">Expérience Professionnelle</p>
+                <p onclick="loadContent('formations')">Formations</p>
+                <p onclick="loadContent('competences')">Compétences</p>
+                <p onclick="loadContent('logiciels')">Logiciels Utilisés</p>
+                <p onclick="loadContent('contact')">Contact</p>
+        </footer>
+    
+    </div>
 
   <script src="scripts.js"></script>
 </body>
