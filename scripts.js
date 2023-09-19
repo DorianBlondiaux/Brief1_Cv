@@ -1,6 +1,7 @@
 var sideBarFlag = true;
 var isPcSize = window.matchMedia("(min-width: 800px)")
 var navBarSize = 33;
+const ratio = 1.2;
 
 var expProHtml = '\
     <h2>Expérience Profesionnelle</h2>\
@@ -8,14 +9,31 @@ var expProHtml = '\
     <h5>Gestion de l\'application EISEC pour Euro-Information | Développement en Java et PowerBuilder</h5>\
     <p>- Prise en charge et résolution de tickets d\'incidents</p>\
     <p>- Développement, test et livraisons de correctifs et d\'évolutions de l\'application<p>\
-    <p>- Création/Modification de scripts SQL/PLSQL <p>\
+    <p>- Création/Modification de scripts SQL/PLSQL </p>\
     <p>- Gestion de l\'arbre de décision de l\'octroi</p>\
+    <h4>2019 - 2021 | Développeur Junior Java EE| Open</h4>\
+    <h5>Gestion de l’application conseiller Crédit du Nord :</h5>\
+    <p>- Prise en charge et résolution de tickets d’incidents</p>\
+    <p>- Développement, tests et livraisons de correctifs et d’évolutions de l’application</p>\
+    <p>- Récupération, analyses de logs et analyses de code</p>\
+    <p>- Rédaction de  devis, fiches de tests et conceptions techniques</p>\
+    <h5>2018 (3 mois) | Analyste Développeur | Schaeffer Productique</h5>\
+    <p>- Programmation en Progress 4GL sur leur ERP Textile « Solin »</p>\
+    <p>- Modifications en base de données via  Progress  4GL</p>\
+    <p>- Assistance utilisateurs : Débug de programmes, aide en ligne, connexion bureau à distance, configuration de boites mail</p>\
     ';
 
 var formationsHtml = '\
 <h2>Formation</h2>\
 <h4>2019 | Formation Développeur Java EE - Afpa et Aston</h4>\
-<h5>Formation de 4 mois au développement Java EE</h5>';
+<h5>Formation de 4 mois au développement Java EE</h5>\
+<p>Formation de 4 mois au développement  Java EE</p>\
+<p>Réalisation d’un projet de fin de formation nommé « Leveltek » développé avec Spring Boot et Angular,\
+ qui permet à un développeur d’évaluer son niveau et à des Rh de rechercher ces derniers avec des compétences précises.</p>\
+<h5>2016 – BTS SIO – Lycée Gaston Berger LILLE</h5>\
+<p>Bts informatique option SLAM (Spécialisé en développement)  Langages étudiés : Java, Php, C#, Python, Javascript, Html, Css</p>\
+<h5>2014 – BAC S – Lycée Sacré Cœur Tourcoing</h5>\
+';
 
 var competencesHtml = '\
 <h2>Compétences</h2>\
@@ -63,13 +81,16 @@ var contactHtml = '\
 </div>\
 ';
 
-loadContentCloseNav('expPro');
-
 if (isPcSize){ 
   document.getElementById("navBtn").style.display = "none"; 
   navBarSize = 15;
   openCloseNav();
+  changeFontSize(document.body);
 }
+
+loadContentCloseNav('expPro');
+
+
 
 
   function openCloseNav(){
@@ -108,5 +129,22 @@ if (isPcSize){
 function loadContentCloseNav(part) {
   loadContent(part);
   openCloseNav();
+}
+
+function changeFontSize(element){
+    var originalSize = element.getAttribute("data-orgFontSize");
+    const currentSize = window.getComputedStyle(element, null).getPropertyValue('font-size');
+    if (!originalSize) {
+        originalSize = currentSize;
+        element.setAttribute("data-orgFontSize", currentSize);
+    }
+
+    if (originalSize) {    
+        const size = parseFloat(originalSize.replace("px",""));
+        element.style.fontSize = (size * ratio)  + "px";
+        for(var i=0; i < element.children.length; i++){
+            changeFontSize(element.children[i]);
+        }
+    }
 }
 
