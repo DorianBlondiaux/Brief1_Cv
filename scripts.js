@@ -1,7 +1,10 @@
 var sideBarFlag = true;
-var isPcSize = window.matchMedia("(min-width: 800px)")
+var isPcSize = window.matchMedia("(min-width: 800px)").matches;
 var navBarSize = 33;
 const ratio = 1.2;
+
+console.log(window.innerWidth);
+console.log(isPcSize);
 
 var expProHtml = '\
     <h2>Expérience Profesionnelle</h2>\
