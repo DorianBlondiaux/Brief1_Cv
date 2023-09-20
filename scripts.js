@@ -1,6 +1,7 @@
 var sideBarFlag = true;
 var isPcSize = window.matchMedia("(min-width: 800px)").matches;
 var navBarSize = 33;
+var lastId = "";
 const ratio = 1.2;
 
 console.log(window.innerWidth);
@@ -93,9 +94,6 @@ if (isPcSize){
 
 loadContentCloseNav('expPro');
 
-
-
-
   function openCloseNav(){
     if(sideBarFlag){
       document.getElementById("leftNavbar").style.width = "0";
@@ -107,30 +105,57 @@ loadContentCloseNav('expPro');
     sideBarFlag = !sideBarFlag;
   }
 
-  function loadContent(part) {
+  function loadContent(id) {
     var partToLoad ='';
-    switch (part) {
-      case 'expPro':
+    var bisMenu = id;
+    console.log(bisMenu);
+
+    if(id.includes('2')){
+      bisMenu = bisMenu.substring(0, id.length - 1 );
+    }else{
+      bisMenu += '2';
+    }
+
+    document.getElementById(id).style.color = "white";
+    document.getElementById(bisMenu).style.color = "white";
+    
+
+    if(document.getElementById(lastId)){
+      var bisLastMenu = lastId;
+      if(lastId.includes('2')){
+        bisLastMenu = bisLastMenu.substring(0, lastId.length - 1 );
+      }else{
+        bisLastMenu += '2';
+      }
+
+      document.getElementById(lastId).style.color = "#999";
+      document.getElementById(bisLastMenu).style.color = "#999";
+    }
+    
+
+    switch (true) {
+      case id.includes('expPro'):
         partToLoad = expProHtml
         break;
-      case 'formations':
+      case id.includes('formations'):
         partToLoad = formationsHtml
         break;
-      case 'competences':
+      case id.includes('competences'):
         partToLoad = competencesHtml
         break;
-      case 'logiciels':
+      case id.includes('logiciels'):
         partToLoad = logicielsHtml
       break;
-      case 'contact':
+      case id.includes('contact'):
         partToLoad = contactHtml
       break;
     }
     document.getElementById("content").innerHTML = partToLoad;
+    lastId = id;
 }
 
-function loadContentCloseNav(part) {
-  loadContent(part);
+function loadContentCloseNav(id) {
+  loadContent(id);
   openCloseNav();
 }
 

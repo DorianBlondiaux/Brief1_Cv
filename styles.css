@@ -58,8 +58,9 @@
     position: relative;
   }
 
-  .entete a{
+  .entete span{
     display: block;
+    margin-left: 10px;
   }
 
   .entete{
@@ -122,6 +123,14 @@
     text-align: center;
     padding: 20px 0;
     font-size: 30px;
+  }
+
+  .toHover{
+    color: #999;
+  }
+
+  .toHover:hover{
+    color:white;
   }
 
   #main {
