@@ -99,7 +99,7 @@
     margin-top: -0.5px;
     margin-left: 10%;
     margin-right: 10%;
-}
+  }
 
   footer{
     border-top: 1px solid rgba(255,255,255,.08);
@@ -127,13 +127,26 @@
     font-size: 30px;
   }
 
-  .toHover{
+  .toHover, .cv{
     color: #999;
+    text-decoration: none;
   }
 
-  .toHover:hover{
+  .toHover:hover, .cv:hover{
     color:white;
   }
+
+  .navBarChoix{
+    height:100%;
+    display: flex;
+  }
+
+  .flex {
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+  }
+  
 
   #main {
     transition: margin-left .5s;
