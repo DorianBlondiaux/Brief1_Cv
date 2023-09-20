@@ -2,7 +2,7 @@ var sideBarFlag = true;
 var isPcSize = window.matchMedia("(min-width: 800px)").matches;
 var navBarSize = 33;
 var lastId = "";
-const ratio = 1.2;
+var ratio = 1.2;
 
 console.log(window.innerWidth);
 console.log(isPcSize);
@@ -31,7 +31,6 @@ var formationsHtml = '\
 <h2>Formation</h2>\
 <h4>2019 | Formation Développeur Java EE - Afpa et Aston</h4>\
 <h5>Formation de 4 mois au développement Java EE</h5>\
-<p>Formation de 4 mois au développement  Java EE</p>\
 <p>Réalisation d’un projet de fin de formation nommé « Leveltek » développé avec Spring Boot et Angular,\
  qui permet à un développeur d’évaluer son niveau et à des Rh de rechercher ces derniers avec des compétences précises.</p>\
 <h5>2016 – BTS SIO – Lycée Gaston Berger LILLE</h5>\
@@ -107,32 +106,11 @@ loadContentCloseNav('expPro');
 
   function loadContent(id) {
     var partToLoad ='';
-    var bisMenu = id;
-    console.log(bisMenu);
-
-    if(id.includes('2')){
-      bisMenu = bisMenu.substring(0, id.length - 1 );
-    }else{
-      bisMenu += '2';
-    }
-
-    document.getElementById(id).style.color = "white";
-    document.getElementById(bisMenu).style.color = "white";
     
-
-    if(document.getElementById(lastId)){
-      var bisLastMenu = lastId;
-      if(lastId.includes('2')){
-        bisLastMenu = bisLastMenu.substring(0, lastId.length - 1 );
-      }else{
-        bisLastMenu += '2';
-      }
-
-      document.getElementById(lastId).style.color = "#999";
-      document.getElementById(bisLastMenu).style.color = "#999";
-    }
+    // Gestion du changement de couleur des éléments  de la sidebar quand séléctionnés
+    sidebarSelection(id);
     
-
+    //Chargement html main
     switch (true) {
       case id.includes('expPro'):
         partToLoad = expProHtml
@@ -151,12 +129,44 @@ loadContentCloseNav('expPro');
       break;
     }
     document.getElementById("content").innerHTML = partToLoad;
+
+    //Ajustement taille police 
+    if(!id.includes('expPro') && !id.includes('formations')){
+      ratio = 0.9;
+      changeFontSize(document.getElementById("content"));
+    }
     lastId = id;
 }
 
 function loadContentCloseNav(id) {
   loadContent(id);
   openCloseNav();
+}
+
+function sidebarSelection(id){
+  var bisMenu = id;
+  if(id != lastId){
+    if(id.includes('2')){
+      bisMenu = bisMenu.substring(0, id.length - 1 );
+    }else{
+      bisMenu += '2';
+    }
+
+    document.getElementById(id).style.color = "white";
+    document.getElementById(bisMenu).style.color = "white";
+      
+    if(document.getElementById(lastId)){
+      var bisLastMenu = lastId;
+      if(lastId.includes('2')){
+        bisLastMenu = bisLastMenu.substring(0, lastId.length - 1 );
+      }else{
+        bisLastMenu += '2';
+      }
+
+      document.getElementById(lastId).style.color = "#999";
+      document.getElementById(bisLastMenu).style.color = "#999";
+    }
+  }
 }
 
 function changeFontSize(element){

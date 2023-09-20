@@ -15,15 +15,15 @@
 <body>
     <div id="leftNavbar" class="sidebar">
         <div class="navBarChoix">
-            <p class="toHover" id="expPro" onclick="loadContentCloseNav(this.id)">Expérience Professionnelle</p>
+            <p class="toHover" id="expPro" onclick="loadContent(this.id); if(!isPcSize){openCloseNav();}">Expérience Professionnelle</p>
             <div class="navbar-list-divider"></div>
-            <p class="toHover" id="formations" onclick="loadContentCloseNav(this.id)">Formations</p>
+            <p class="toHover" id="formations" onclick="loadContent(this.id); if(!isPcSize){openCloseNav();}">Formations</p>
             <div class="navbar-list-divider"></div>
-            <p class="toHover" id="competences" onclick="loadContentCloseNav(this.id)">Compétences</p>
+            <p class="toHover" id="competences" onclick="loadContent(this.id); if(!isPcSize){openCloseNav();}">Compétences</p>
             <div class="navbar-list-divider"></div>
-            <p class="toHover" id="logiciels" onclick="loadContentCloseNav(this.id)">Logiciels Utilisés</p>
+            <p class="toHover" id="logiciels" onclick="loadContent(this.id); if(!isPcSize){openCloseNav();}">Logiciels Utilisés</p>
             <div class="navbar-list-divider"></div>
-            <p class="toHover" id="contact" onclick="loadContentCloseNav(this.id)">Contact</p>
+            <p class="toHover" id="contact" onclick="loadContent(this.id); if(!isPcSize){openCloseNav();}">Contact</p>
             <div class="flex">
                 <a class="cv" href="cv.pdf" download>Télécharger en PDF</a>
             </div>
