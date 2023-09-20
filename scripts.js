@@ -82,7 +82,7 @@ var contactHtml = '\
 ';
 
 if (isPcSize){ 
-  document.getElementById("navBtn").style.display = "none"; 
+  document.getElementById("navBtn").style.visibility = "hidden"; 
   navBarSize = 15;
   openCloseNav();
   changeFontSize(document.body);
