@@ -130,7 +130,7 @@ loadContentCloseNav('expPro');
     }
     document.getElementById("content").innerHTML = partToLoad;
 
-    //Ajustement taille police 
+    //Ajustement taille police pour certaines pages
     if(!id.includes('expPro') && !id.includes('formations')){
       ratio = 0.9;
       changeFontSize(document.getElementById("content"));
